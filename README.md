@@ -50,44 +50,6 @@ This repository includes the following voice recording scripts:
 - **english_smalltalk_140.txt** - 140 English small talk and conversational phrases
 - **mandarin_150_v2.txt** - 150 Mandarin Chinese sentences for comprehensive coverage
 
-## Organize your audio samples
-
-Create the following directory structure for optimal voice sample management:
-
-```
-some-voice-sample-project/
-├── audio-samples/
-│   ├── cantonese_50_101.wav
-│   ├── cantonese_50_102.wav
-│   └── english_generic_101.wav
-└── annotation.list              # The annotation file 
-```
-
-### Annotation File Format
-
-The `annotation.list` file uses a pipe-delimited format to map audio files to their corresponding text and language. Each line follows this structure:
-
-```
-audio_filename|language_code|text_content
-```
-
-**Example entries:**
-```
-audio_samples_100.wav|yue|我嗰個smart home system真係好方便。
-audio_samples_101.wav|yue|嗰個cafe嘅brunch menu好吸引。
-audio_samples_102.wav|en|London bridge is falling down.
-audio_samples_103.wav|en|Hi there! Welcome to mirako.
-audio_samples_104.wav|zh|寻求将能源转化为智能的最优解。
-audio_samples_105.wav|zh|但是它本身是不支持访问网络、数据库等外部资源，也不支持执行任何代码。
-```
-
-**Format specifications:**
-- **audio_filename**: Name of the audio file (without path)
-- **language_code**: Language identifier (`yue` for Cantonese, `en` for English, `zh` for Mandarin)
-- **text_content**: The exact text spoken in the audio file
-- **Delimiter**: Pipe character `|` separates the three components
-- **Empty lines**: Allowed and will be ignored during processing
-
 ## Recording Guidelines
 
 ### Audio Quality Standards
@@ -126,24 +88,43 @@ Ensure all audio files are:
 
 ### 2. Create Annotation File
 
-Create a YAML file mapping scripts to audio files:
+The `annotation.list` file uses a pipe-delimited format to map audio files to their corresponding text and language. Each line follows this structure:
 
-```yaml
-# annotations/voice_profile.yml
-voice_profile:
-  name: "My Multilingual Voice"
-  description: "Personal voice clone for multilingual AI assistant"
-  language: "mixed"
-  samples:
-    - audio_file: "final/cantonese_40_01_neutral.wav"
-      text: "今日天氣幾好，我哋一齊出去玩啦。"
-    - audio_file: "final/english_generic_02_excited.wav"
-      text: "I'm really looking forward to our meeting tomorrow!"
-    - audio_file: "final/mandarin_150_01_calm.wav"
-      text: "人工智能正在改变我们的生活方式。"
+```
+audio_filename|language_code|text_content
 ```
 
-### 3. Clone Your Voice
+**Example entries:**
+```
+audio_samples_100.wav|yue|我嗰個smart home system真係好方便。
+audio_samples_101.wav|yue|嗰個cafe嘅brunch menu好吸引。
+audio_samples_102.wav|en|London bridge is falling down.
+audio_samples_103.wav|en|Hi there! Welcome to mirako.
+audio_samples_104.wav|zh|寻求将能源转化为智能的最优解。
+audio_samples_105.wav|zh|但是它本身是不支持访问网络、数据库等外部资源，也不支持执行任何代码。
+```
+
+**Format specifications:**
+- **audio_filename**: Name of the audio file (without path)
+- **language_code**: Language identifier (`yue` for Cantonese, `en` for English, `zh` for Mandarin)
+- **text_content**: The exact text spoken in the audio file
+- **Delimiter**: Pipe character `|` separates the three components
+- **Empty lines**: Allowed and will be ignored during processing
+
+### 3. Organize your audio samples
+
+Create the following directory structure for optimal voice sample management:
+
+```
+some-voice-sample-project/
+├── audio-samples/
+│   ├── cantonese_50_101.wav
+│   ├── cantonese_50_102.wav
+│   └── english_generic_101.wav
+└── annotation.list              # The annotation file 
+```
+
+### 4. Clone Your Voice
 
 Here's an example to perform voice cloning process using the Mirako CLI:
 
