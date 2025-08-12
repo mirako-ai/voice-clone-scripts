@@ -154,7 +154,7 @@ mirako voice clone \
 
 ```bash
 # List your voice profiles
-mirako voice list-profiles
+mirako voice list
 
 # Use in text-to-speech
 mirako speech tts \
